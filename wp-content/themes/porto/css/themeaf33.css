@@ -14632,10 +14632,9 @@ li.menu-item>.nolink {
 
 #header .logo {
     margin: 0;
-    padding: 0;
+    padding-inline: 20px;
     min-width: 80px;
     line-height: 0;
-    max-width: var(--porto-logo-mw)
 }
 
 #header .logo a {
