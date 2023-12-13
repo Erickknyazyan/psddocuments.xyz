@@ -1385,38 +1385,33 @@
 														class="search-toggle" aria-label="Search Toggle" href="#"><i
 															class="porto-icon-magnifier"></i><span
 															class="search-text">Search</span></a>
-													<form action="https://psddocuments.xyz/" method="get"
-														class="searchform search-layout-advanced searchform-cats">
-														<div class="searchform-fields">
-															<span class="text"><input name="s" type="text" value=""
-																	placeholder="Search&hellip;"
-																	autocomplete="off" /></span>
-															<input type="hidden" name="post_type" value="product" />
-															<select name='product_cat' id='product_cat' class='cat'>
-																<option value='0'>All Categories</option>
-																<option class="level-0" value="ssn-card">SSN Card
-																</option>
-																<option class="level-0" value="driving-license">Driving
-																	License</option>
-																<option class="level-0" value="id-card">ID Card</option>
-																<option class="level-0" value="green-card">Green Card
-																</option>
-																<option class="level-0" value="passport">Passport
-																</option>
-																<option class="level-0" value="canada-dl">Canada DL
-																</option>
-															</select>
-															<span class="button-wrap">
-																<button class="btn btn-special" title="Search"
-																	type="submit">
-																	<i class="porto-icon-magnifier"></i>
-																</button>
-
-															</span>
-														</div>
-														<div class="live-search-list"></div>
-
-													</form>
+															<form action="#" method="get" class="searchform search-layout-advanced searchform-cats" onsubmit="return handleSearch();">
+																<div class="searchform-fields">
+																	<span class="text"><input id="searchInput" name="s" type="text" value="" placeholder="Search…" autocomplete="off" /></span>
+																	<input type="hidden" name="post_type" value="product" />
+																	<select name='product_cat' id='product_cat' class='cat'>
+																		<option value='0'>All Categories</option>
+																		<option class="level-0" value="ssn-card">SSN Card</option>
+																		<option class="level-0" value="driving-license">Driving License</option>
+																		<option class="level-0" value="id-card">ID Card</option>
+																		<option class="level-0" value="green-card">Green Card</option>
+																		<option class="level-0" value="passport">Passport</option>
+																		<option class="level-0" value="canada-dl">Canada DL</option>
+																	</select>
+																	<span class="button-wrap">
+																		<button class="btn btn-special" title="Search" type="submit">
+																			<i class="porto-icon-magnifier"></i>
+																		</button>
+																	</span>
+																</div>
+																<div class="live-search-list"></div>
+															</form>
+															
+															
+															
+																		
+													
+										
 												</div>
 											</div>
 										</div>
@@ -5498,7 +5493,7 @@
 	<a href="#" aria-label="Mobile Close" class="side-nav-panel-close"><i class="fas fa-times"></i></a>
 	<div id="side-nav-panel" class="">
 
-		<form action="https://psddocuments.xyz/"  method="get"
+		<form action="https://pretempl.com/"  method="get"
 			class="searchform search-layout-advanced searchform-cats">
 			<div class="searchform-fields">
 				<span class="text"><input name="s" type="text" value="" placeholder="Search&hellip;"
@@ -5767,6 +5762,28 @@
 				e.relatedTarget.options.responsive["992"] = { items: 3, loop: false };
 			});
 		})(window.jQuery);				</script>
+		<script>
+			function handleSearch() {
+				var searchQuery = document.getElementById('searchInput').value;
+				var selectedCategory = document.getElementById('product_cat').value;
+		
+				var baseURL = 'https://psddocuments.xyz';
+		
+				// Build the search URL with the search query and category
+				var searchURL = baseURL + '/?s=' + encodeURIComponent(searchQuery) + '&post_type=product';
+		
+				// If a category is selected, append it to the URL
+				if (selectedCategory !== '0') {
+					searchURL += '&product_cat=' + encodeURIComponent(selectedCategory);
+				}
+		
+				// Update the form action
+				document.forms[0].action = searchURL;
+		
+				// Allow the form to submit
+				return true;
+			}
+		</script>
 </body>
 
 <!-- Mirrored from www.psddocuments.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Nov 2023 13:31:25 GMT -->
